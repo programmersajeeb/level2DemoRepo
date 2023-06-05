@@ -162,3 +162,7 @@ console.log(person.getDetails());
 
 const student = new Student("Sajeeb", 18, "A+");
 console.log(student.getGrade());
+
+// const genericf = <T>(param: <T>): <T> => {
+//   return [demo]
+// }
