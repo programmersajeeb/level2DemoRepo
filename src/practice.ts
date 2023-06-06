@@ -166,3 +166,40 @@ console.log(student.getGrade());
 // const genericf = <T>(param: <T>): <T> => {
 //   return [demo]
 // }
+
+// Can you give an example of how to use generics in TypeScript?
+// Example 1: Generic function
+const genericFunction1 = <T>(param: T): T[] => {
+  return [param];
+};
+
+/* এখানে জেনেরিক ফাংশন  একটা জেনেরিক এ্যারে যা যে কোন ধরনের ডাটা নিতে পারে স্ট্রিং, নাম্বার, বা বুলিয়ান  েএবং রিটার্ন করে সেই ধরনের ডাটার এ্যারে */
+// genericFunction1<number>(numbers); // Output: 1 2 3 4 5
+// genericFunction1<string>(strings); // Output: apple banana cherry
+
+// Example 2: Generic class
+class Box<T> {
+  private items: T[] = [];
+
+  addItem(item: T): void {
+    this.items.push(item);
+  }
+
+  getItem(index: number): T {
+    return this.items[index];
+  }
+}
+
+const numberBox = new Box<number>();
+numberBox.addItem(1);
+numberBox.addItem(2);
+numberBox.addItem(3);
+
+console.log(numberBox.getItem(1)); // Output: 2
+
+const stringBox = new Box<string>();
+stringBox.addItem("apple");
+stringBox.addItem("banana");
+stringBox.addItem("cherry");
+
+console.log(stringBox.getItem(0)); // Output: apple
